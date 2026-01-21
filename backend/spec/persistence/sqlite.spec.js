@@ -9,6 +9,12 @@ const ITEM = {
 };
 
 beforeEach(() => {
+    fs.rmSync(location, { force: true});
+})
+
+afterEach(async () => {
+    await db.teardown();
+
     if (fs.existsSync(location)) {
         fs.unlinkSync(location);
     }
